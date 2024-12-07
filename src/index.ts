@@ -337,10 +337,29 @@ class TaskManager {
     private _loadTasks(): void {
         const tasksData = localStorage.getItem('tasks');
         if (tasksData) {
-            this.tasks = JSON.parse(tasksData);
+            const tasks: unknown[] = JSON.parse(tasksData);
+            const validTasks = tasks.filter(task => this.isTask(task));
+            if ((validTasks && validTasks.length) || []) {
+                this.tasks = JSON.parse(tasksData);
+                console.log('hello');
+            } else {
+                return;
+            }
         }
 
         this._renderTaskList();
+    }
+
+    // проверяем данные из LS, если что то не так - убираем из списка
+    isTask(task: Task): boolean {
+        return (
+            typeof task.id === "string" &&
+            typeof task.title === "string" &&
+            typeof task.description === "string" &&
+            task.createDate instanceof Date &&
+            Object.values(Status).includes(task.status) &&
+            Object.values(TaskType).includes(task.type)
+        );
     }
 }
 
