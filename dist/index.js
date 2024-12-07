@@ -253,26 +253,9 @@ class TaskManager {
     _loadTasks() {
         const tasksData = localStorage.getItem('tasks');
         if (tasksData) {
-            const tasks = JSON.parse(tasksData);
-            const validTasks = tasks.filter(task => this.isTask(task));
-            if ((validTasks && validTasks.length) || []) {
-                this.tasks = JSON.parse(tasksData);
-                console.log('hello');
-            }
-            else {
-                return;
-            }
+            this.tasks = JSON.parse(tasksData);
         }
         this._renderTaskList();
-    }
-    // проверяем данные из LS, если что то не так - убираем из списка
-    isTask(task) {
-        return (typeof task.id === "string" &&
-            typeof task.title === "string" &&
-            typeof task.description === "string" &&
-            task.createDate instanceof Date &&
-            Object.values(Status).includes(task.status) &&
-            Object.values(TaskType).includes(task.type));
     }
 }
 class Modal {
