@@ -337,7 +337,7 @@ class TaskManager {
     private _loadTasks(): void {
         const tasksData = localStorage.getItem('tasks');
         if (tasksData) {
-            const tasks: unknown[] = JSON.parse(tasksData);
+            const tasks: Task[] = JSON.parse(tasksData);
             const validTasks = tasks.filter(task => this.isTask(task));
             if ((validTasks && validTasks.length) || []) {
                 this.tasks = JSON.parse(tasksData);
