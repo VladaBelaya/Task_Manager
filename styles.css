@@ -1,0 +1,210 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 20px;
+    color: #333;
+}
+
+.container {
+    max-width: 1000px;
+    margin: auto;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+}
+
+h1 {
+    text-align: center;
+    color: #2c3e50;
+}
+
+#tasksList {
+    list-style: none;
+    padding: 0;
+}
+
+#createTaskButton {
+    width: 50px;
+    height: 50px;
+}
+
+label {
+    display: block;
+    margin-bottom: 10px;
+}
+
+#tasksList li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 10px;
+    margin: 10px 0;
+    transition: background-color 0.3s;
+}
+
+#tasksList li:hover {
+    background-color: #f0f8ff;
+}
+
+.wrapper {
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-right: 15px;
+    padding: 5px;
+    flex: 1;
+}
+
+.wrapper *:first-child {
+    font-size: 16px;
+    line-height: 20px;
+    color: #0066cc;
+}
+
+.remove-button {
+    background-color: #e74c3c;
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    max-width: 80px;
+    margin-bottom: 0;
+}
+
+.remove-button:hover {
+    background-color: #c0392b;
+}
+
+.select-container,
+.input-container {
+    margin: 10px 0;
+}
+
+select,
+input[type="text"],
+input[type="date"],
+textarea {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+select {
+    cursor: pointer;
+}
+
+select:focus,
+input:focus,
+textarea:focus {
+    border-color: #3498db;
+    outline: none;
+    box-shadow: 0 0 5px rgba(52, 152, 219, 0.5);
+}
+
+.overlay {
+    opacity: 0;
+    visibility: hidden;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, .5);
+    z-index: 1;
+    transition: .3s all;
+}
+
+.modal {
+    opacity: 0;
+    visibility: hidden;
+    width: 100%;
+    max-width: 1000px;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+    text-align: center;
+    padding: 50px 30px 30px;
+    border-radius: 8px;
+    background-color: #fff;
+    transition: 0.3s all;
+    display: flex;
+    gap: 20px;
+}
+
+.filters {
+    margin-bottom: 10px;
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.modal > * {
+    flex: 1 1 auto;
+}
+
+.modal.active,
+.overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.modal__close {
+    width: 15px;
+    height: 15px;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    fill: #444;
+    cursor: pointer;
+}
+
+input, textarea, button {
+    font-family: 'Arial', sans-serif;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin-bottom: 20px;
+    width: 100%;
+    box-sizing: border-box;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+input:focus, textarea:focus {
+    border-color: #0066cc;
+}
+
+button {
+    background-color: #0066cc;
+    color: white;
+    cursor: pointer;
+    border: none;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #005bb5;
+}
+
+textarea {
+    resize: vertical; /* Разрешаем изменение размера по вертикали */
+    min-height: 100px;
+}
+
+.hide {
+    display: none;
+}
+
+.modal__right-wrapper {
+    flex: 1;
+}

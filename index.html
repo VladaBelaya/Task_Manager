@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Менеджер задач</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Менеджер задач</h1>
+        <div>
+            <div class="filters">Фильтры:</div>
+            <div>
+                <label>
+                    Статус:
+                    <select id="filterStatus"></select>
+                </label>
+                <label>
+                    Тип:
+                    <select id="filterType"></select>
+                </label>
+            </div>
+            <button id="applyFilters">Применить фильтры</button>
+        </div>
+        <button id="createTaskButton">+</button>
+        <ul id="tasksList"></ul>
+    </div>
+
+    <div id="overlay" class="overlay"></div>
+    <div id="modal" class="modal">
+        <svg class="modal__close" id="closeModal" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M23.954 21.03l-9.184-9.095 9.092-9.174-2.832-2.807-9.09 9.179-9.176-9.088-2.81 2.81 9.186 9.105-9.095 9.184 2.81 2.81 9.112-9.192 9.18 9.1z"/></svg>
+        <div class="modal__left-wrapper" id="selectWrapper">
+            <div>
+                <label>
+                    <input id="titleInput" type="text">
+                </label>
+                <div class="title"></div>
+            </div>
+            <div>
+                <label>
+                    <textarea id="descriptionInput"></textarea>
+                </label>
+                <div class="description"></div>
+            </div>
+
+            <button class="" id="saveTask">Сохранить</button>
+        </div>
+        <div class="modal__right-wrapper">
+            <label class="select-container">
+                Тип
+                <select id="taskType"></select>
+            </label>
+            <label class="select-container">
+                Статус
+                <select id="taskStatus"></select>
+            </label>
+            <label class="select-container">
+                Ответственный
+                <select id="taskAssignee"></select>
+            </label>
+            <label class="select-container">
+                Город
+                <select id="taskLocation"></select>
+            </label>
+            <label class="input-container">
+                Крайняя дата сдачи
+                <input type="date" id="taskDeadline">
+            </label>
+        </div>
+    </div>
+
+    <script src="dist/index.js"></script>
+</body>
+</html>
